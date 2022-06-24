@@ -9,6 +9,18 @@ import UIKit
 
 class ViewController: UIViewController {
     // MARK: UI Components
+    
+    private var numberLabel: UILabel = {
+        let label = UILabel()
+        label.translatesAutoresizingMaskIntoConstraints = false
+        label.text = "0"
+        label.textColor = .white
+        label.font = .systemFont(ofSize: 80, weight: .light)
+        label.numberOfLines = 1
+        label.textAlignment = .right
+        return label
+    }()
+    
     // 숫자 키패드
     private lazy var button0: UIButton = {
         var configuration = UIButton.Configuration.plain()
@@ -384,15 +396,22 @@ class ViewController: UIViewController {
         
         buttonEqual.widthAnchor.constraint(equalTo: buttonPlus.widthAnchor).isActive = true
         buttonDot.widthAnchor.constraint(equalTo: button3.widthAnchor).isActive = true
+        
+        self.view.addSubview(numberLabel)
+        
+        numberLabel.bottomAnchor.constraint(equalTo: totalStackView.topAnchor, constant: -10).isActive = true
+        numberLabel.centerXAnchor.constraint(equalTo: buttonDiv.centerXAnchor).isActive = true
     }
     
     private func makeButtonsCircle() {
+        let StackSpacingLeadingTrailingConstraint = CGFloat(50)
         for button in allButtons {
+            button.heightAnchor.constraint(equalToConstant: ((view.frame.width - StackSpacingLeadingTrailingConstraint) / 4)).isActive = true
             if button == button0 {
                 continue
             } else {
                 let handler: UIButton.ConfigurationUpdateHandler = { button in
-                    button.configuration?.background.cornerRadius = button.bounds.size.width / 4
+                    button.configuration?.background.cornerRadius = button.bounds.size.width / 2
                 }
                 button.configurationUpdateHandler = handler
             }
