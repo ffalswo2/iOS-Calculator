@@ -1,6 +1,4 @@
 # Calculator
 
 
-
-<img width="401" alt="image" src="https://user-images.githubusercontent.com/60292150/175591987-c5b7b139-ae12-478b-ae49-e76e52797913.png">
-
+![Simulator Screen Recording - iPhone 13 mini - 2022-06-30 at 02 15 34](https://user-images.githubusercontent.com/60292150/176496974-0cb5bffe-2f9e-41fd-98b6-8fd71f40de79.gif)
